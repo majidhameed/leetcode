@@ -31,23 +31,23 @@ public class MajorityElement {
             return nums[0];
         }
 
-        final Map<Integer, Integer> map = new HashMap<>();
-        int max = Integer.MIN_VALUE;
+        final Map<Integer, Integer> numberFrequencyMap = new HashMap<>();
+        int frequency = Integer.MIN_VALUE;
         int target = nums[0];
         for (int num : nums) {
-            if (map.containsKey(num)) {
-                map.put(num, map.get(num) + 1);
-                if (map.get(num) > nums.length / 2) {
+            if (numberFrequencyMap.containsKey(num)) {
+                numberFrequencyMap.put(num, numberFrequencyMap.get(num) + 1);
+                if (numberFrequencyMap.get(num) > nums.length / 2) {
                     return num;
                 }
             } else {
-                map.put(num, 1);
+                numberFrequencyMap.put(num, 1);
             }
         }
-        for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-            if (max < entry.getValue()) {
+        for (Map.Entry<Integer, Integer> entry : numberFrequencyMap.entrySet()) {
+            if (frequency < entry.getValue()) {
                 target = entry.getKey();
-                max = entry.getValue();
+                frequency = entry.getValue();
             }
         }
 
