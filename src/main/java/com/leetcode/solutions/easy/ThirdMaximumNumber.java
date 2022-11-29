@@ -35,12 +35,12 @@ public class ThirdMaximumNumber {
 
         int i = 0;
         for (int num : set) {
-            if (++i == 3) {
+            if (++i == 3) { // return the 3rd max.
                 return num;
             }
         }
 
-        return set.iterator().next();
+        return set.iterator().next(); // return the max
     }
 
     @Test
