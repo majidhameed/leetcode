@@ -20,16 +20,16 @@ public class CountPrimes {
         if (n == 0 || n == 1) {
             return 0;
         }
-
+        // Sieve of Eratosthenes - https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
         final boolean[] primes = new boolean[n];
-        for (int i = 2; i < n; i++) {
+        for (int i = 2; i < n; i++) { // Assume all numbers are prime except 0 and 1.
             primes[i] = true;
         }
-        for (int i = 2; i * i < n; i++) {
-            if (!primes[i]) {
+        for (int i = 2; i * i < n; i++) { // only need to go up square of a number is less than n
+            if (!primes[i]) { // already set as non-prime so check next one.
                 continue;
             }
-            for (int j = i * i; j < n; j += i) {
+            for (int j = i * i; j < n; j += i) { // mark all composites as non-prime!
                 primes[j] = false;
             }
         }
@@ -49,7 +49,7 @@ public class CountPrimes {
     public void testCountPrimes() {
         assertEquals(4, countPrimes(10));
         assertEquals(0, countPrimes(0));
-        assertEquals(0, countPrimes(0));
+        assertEquals(0, countPrimes(1));
     }
 
 }
