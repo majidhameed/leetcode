@@ -27,10 +27,10 @@ public class FindAllNumbersDisappearedInAnArray {
 
         for (int i = 0; i < nums.length; i++) {
             set.add(i + 1);
-            set.remove(nums[i]);
         }
-        for (int i = 0; i < nums.length; i++) {
-            set.remove(nums[i]);
+
+        for (int num : nums) {
+            set.remove(num);
         }
 
         return List.copyOf(set);
