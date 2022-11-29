@@ -31,9 +31,8 @@ public class SingleNumber2 {
         // NlogN + N = NlogN
 
         Arrays.sort(nums); // NlogN
-
         for (int i = 1; i < nums.length - 1; i++) { // N
-            if (nums[i] != nums[i + 1] && nums[i] != nums[i - 1]) { // non repetitive must not match with a number before or after it
+            if (nums[i] != nums[i + 1] && nums[i] != nums[i - 1]) { // non-repetitive must not match with a number before or after it
                 return nums[i];
             }
         }
@@ -44,6 +43,7 @@ public class SingleNumber2 {
     @Test
     public void testSingleNumber() {
         assertEquals(3, singleNumber(new int[]{2, 2, 3, 2}));
+        assertEquals(1, singleNumber(new int[]{1, 2, 2, 2}));
         assertEquals(99, singleNumber(new int[]{0, 1, 0, 1, 0, 1, 99}));
     }
 }
