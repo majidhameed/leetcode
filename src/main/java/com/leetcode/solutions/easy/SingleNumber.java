@@ -21,7 +21,7 @@ public class SingleNumber {
 
         int ans = 0;
         for (int i = 0; i < nums.length; i++) {
-            ans ^= nums[i]; // duplicate numbers XORed will cancel each other and only non duplicate will remain.
+            ans ^= nums[i]; // numbers appearing twice xor'ed will cancel each other.
         }
 
         return ans;
