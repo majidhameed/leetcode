@@ -61,6 +61,7 @@ public class CheckIfAndItsDoubleExist {
         assertTrue(checkIfExist(new int[]{10, 2, 5, 3}));
 
         assertTrue(checkIfExist(new int[]{7, 1, 14, 11}));
+        assertFalse(checkIfExist(new int[]{1, 3, 4, 21}));
 
         assertFalse(checkIfExist(new int[]{3, 1, 7, 11}));
     }

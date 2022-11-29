@@ -31,6 +31,7 @@ public class BinaryTreeInorderTraversal {
 
         final List<Integer> list = new LinkedList<>();
 
+        // L V R
         list.addAll(inorderTraversal(root.left));
         list.add(root.val);
         list.addAll(inorderTraversal(root.right));
