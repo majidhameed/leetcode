@@ -27,14 +27,8 @@ public class BinaryTreePostorderTraversal {
             return list;
         }
 
-        if (root.left != null) {
-            list.addAll(postorderTraversal(root.left));
-        }
-
-        if (root.right != null) {
-            list.addAll(postorderTraversal(root.right));
-        }
-
+        list.addAll(postorderTraversal(root.left));
+        list.addAll(postorderTraversal(root.right));
         list.add(root.val);
 
         return list;
