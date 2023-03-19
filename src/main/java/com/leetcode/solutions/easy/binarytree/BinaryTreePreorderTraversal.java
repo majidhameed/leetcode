@@ -1,5 +1,6 @@
-package com.leetcode.solutions.easy;
+package com.leetcode.solutions.easy.binarytree;
 
+import com.leetcode.solutions.TreeNode;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;

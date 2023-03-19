@@ -1,4 +1,4 @@
-package com.leetcode.solutions.easy;
+package com.leetcode.solutions.easy.arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -32,7 +32,7 @@ public class CheckIfAndItsDoubleExist {
     public boolean checkIfExist(int[] arr) {
         final Set<Integer> set = new HashSet<>(arr.length - 1);
         for (int i = 0; i < arr.length; i++) {
-            if (set.contains(arr[i] * 2) || arr[i] % 2 == 0 && set.contains(arr[i] / 2)) {
+            if (set.contains(arr[i] * 2) || arr[i] % 2 == 0 && set.contains(arr[i] / 2)) { // Why we need num % 2 == 0 here?
                 return true;
             }
             set.add(arr[i]);
@@ -42,15 +42,9 @@ public class CheckIfAndItsDoubleExist {
 
     public boolean checkIfExistBinarySearch(int[] arr) {
         Arrays.sort(arr);
-        int index;
         for (int i = 0; i < arr.length; i++) {
-            index = Arrays.binarySearch(arr, arr[i] * 2);
-            if (index > -1 && arr[i] != 0) {
+            if (Arrays.binarySearch(arr, i + 1, arr.length, arr[i] * 2) > -1) {
                 return true;
-            } else {
-                if (Arrays.binarySearch(arr, i + 1, arr.length, arr[i] * 2) > -1) {
-                    return true;
-                }
             }
         }
         return false;
@@ -59,10 +53,9 @@ public class CheckIfAndItsDoubleExist {
     @Test
     public void testCheckIfExist() {
         assertTrue(checkIfExist(new int[]{10, 2, 5, 3}));
-
         assertTrue(checkIfExist(new int[]{7, 1, 14, 11}));
-        assertFalse(checkIfExist(new int[]{1, 3, 4, 21}));
 
+        assertFalse(checkIfExist(new int[]{1, 3, 4, 21}));
         assertFalse(checkIfExist(new int[]{3, 1, 7, 11}));
     }
 

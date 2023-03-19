@@ -1,4 +1,4 @@
-package com.leetcode.solutions.easy;
+package com.leetcode.solutions.easy.arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -27,17 +27,14 @@ public class ContainsDuplicate2 {
         final Map<Integer, List<Integer>> map = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i])) {
+            if (map.containsKey(nums[i])) { // numbers(s) exists for the given key
                 final List<Integer> list = map.get(nums[i]); // stored indices for a number
-                for (int j: list) {
-                    if (Math.abs(i - j) <= k) {
-                        return true;
-                    }
-                }
-
-                list.add(i);
-                map.put(nums[i], list);
-            } else {
+                for (int j: list) { // check all elements in the found value list
+                    if (Math.abs(i - j) <= k) return true;
+                } 
+                list.add(i); // add new index to the value list
+                map.put(nums[i], list); // update index
+            } else { // create new list for the given key
                 final List<Integer> list = new LinkedList<>();
                 list.add(i);
                 map.put(nums[i],list);

@@ -1,4 +1,4 @@
-package com.leetcode.solutions.easy;
+package com.leetcode.solutions.easy.arrays;
 
 import org.junit.jupiter.api.Test;
 
@@ -25,10 +25,11 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
  */
 public class DuplicateZeros {
     public void duplicateZeros(int[] arr) {
+
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 0) {
-                for (int j = arr.length - 1; j > i; j--) {
-                    arr[j] = arr[j - 1];
+            if (arr[i] == 0) { // found zero
+                for (int j = arr.length - 1; j > i; j--) { // start from the end and move each element to its right
+                    arr[j] = arr[j - 1]; // move left element to the right
                 }
                 i++;
             }

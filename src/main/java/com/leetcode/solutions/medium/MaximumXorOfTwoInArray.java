@@ -21,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class MaximumXorOfTwoInArray {
 
     public int maxXorOfTwo(int[] nums) {
-        final int[] uniqueNums = Arrays.stream(nums)
+        final int[] uniqueNums = Arrays.stream(nums)  // pick uniques because xor of same will be 0.
                 .distinct()
                 .toArray();
         int max = Integer.MIN_VALUE;
